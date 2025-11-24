@@ -1,89 +1,210 @@
 % Use this file for citations not found in the ACL Anthology (contained in "anthology.bib").
 
 @inproceedings{lewis2020rag,
-  title={Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
-  author={Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K{\"u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt{\"a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
-  booktitle={Advances in Neural Information Processing Systems},
-  volume={33},
-  pages={9459--9474},
-  year={2020},
-  url={https://arxiv.org/abs/2005.11401}
+    author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+    booktitle = {Advances in Neural Information Processing Systems},
+    editor = {H. Larochelle and M. Ranzato and R. Hadsell and M.F. Balcan and H. Lin},
+    pages = {9459--9474},
+    publisher = {Curran Associates, Inc.},
+    title = {Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks},
+    url = {https://proceedings.neurips.cc/paper_files/paper/2020/file/6b493230205f780e1bc26945df7481e5-Paper.pdf},
+    volume = {33},
+    year = {2020},
+    eprint = {2005.11401},
+    archiveprefix = {arXiv}
 }
 
 @inproceedings{rajpurkar2018squad,
-  title={Know What You Don't Know: Unanswerable Questions for {SQuAD}},
-  author={Rajpurkar, Pranav and Jia, Robin and Liang, Percy},
-  booktitle={Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)},
-  pages={784--789},
-  year={2018},
-  address={Melbourne, Australia},
-  publisher={Association for Computational Linguistics},
-  url={https://arxiv.org/abs/1806.03822}
+    title = "Know What You Don{'}t Know: Unanswerable Questions for {SQ}u{AD}",
+    author = "Rajpurkar, Pranav  and
+      Jia, Robin  and
+      Liang, Percy",
+    editor = "Gurevych, Iryna  and
+      Miyao, Yusuke",
+    booktitle = "Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
+    month = jul,
+    year = "2018",
+    address = "Melbourne, Australia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/P18-2124/",
+    doi = "10.18653/v1/P18-2124",
+    pages = "784--789",
+    abstract = "Extractive reading comprehension systems can often locate the correct answer to a question in a context document, but they also tend to make unreliable guesses on questions for which the correct answer is not stated in the context. Existing datasets either focus exclusively on answerable questions, or use automatically generated unanswerable questions that are easy to identify. To address these weaknesses, we present SQuADRUn, a new dataset that combines the existing Stanford Question Answering Dataset (SQuAD) with over 50,000 unanswerable questions written adversarially by crowdworkers to look similar to answerable ones. To do well on SQuADRUn, systems must not only answer questions when possible, but also determine when no answer is supported by the paragraph and abstain from answering. SQuADRUn is a challenging natural language understanding task for existing models: a strong neural system that gets 86{\%} F1 on SQuAD achieves only 66{\%} F1 on SQuADRUn. We release SQuADRUn to the community as the successor to SQuAD.",
+    eprint = {1806.03822},
+    archiveprefix = {arXiv}
 }
 
 @inproceedings{roberts2020fine,
-  title={How Much Knowledge Can You Pack into the Parameters of a Language Model?},
-  author={Roberts, Adam and Raffel, Colin and Shazeer, Noam},
-  booktitle={Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  pages={5418--5426},
-  year={2020},
-  address={Online},
-  publisher={Association for Computational Linguistics},
-  url={https://arxiv.org/abs/2002.08910}
+    title = "How Much Knowledge Can You Pack Into the Parameters of a Language Model?",
+    author = "Roberts, Adam  and
+      Raffel, Colin  and
+      Shazeer, Noam",
+    editor = "Webber, Bonnie  and
+      Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-main.437/",
+    doi = "10.18653/v1/2020.emnlp-main.437",
+    pages = "5418--5426",
+    abstract = "It has recently been observed that neural language models trained on unstructured text can implicitly store and retrieve knowledge using natural language queries. In this short paper, we measure the practical utility of this approach by fine-tuning pre-trained models to answer questions without access to any external context or knowledge. We show that this approach scales with model size and performs competitively with open-domain systems that explicitly retrieve answers from an external knowledge source when answering questions. To facilitate reproducibility and future work, we release our code and trained models."
 }
 
 @article{kalai2025hallucinate,
   title={Why Language Models Hallucinate},
-  author={Kalai, Adam Tauman and Nachum, Ofir and Vempala, Santosh S. and Zhang, Edwin},
-  journal={arXiv preprint arXiv:2509.04664},
+  author={Adam Tauman Kalai and Ofir Nachum and Santosh S. Vempala and Edwin Zhang},
+  journal={ArXiv},
   year={2025},
-  url={https://arxiv.org/abs/2509.04664}
+  volume={abs/2509.04664},
+  url={https://api.semanticscholar.org/CorpusID:281194798}
 }
 
 @article{dahl2024legal,
-  title={Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models},
-  author={Dahl, Matthew and Magesh, Varun and Suzgun, Mirac and Ho, Daniel E.},
-  journal={Journal of Legal Analysis},
-  volume={16},
-  number={1},
-  pages={64--93},
-  year={2024},
-  publisher={Oxford University Press},
-  doi={10.1093/jla/laae003},
-  url={https://academic.oup.com/jla/article/16/1/64/7699227}
+    author = {Dahl, Matthew and Magesh, Varun and Suzgun, Mirac and Ho, Daniel E},
+    title = {Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models},
+    journal = {Journal of Legal Analysis},
+    volume = {16},
+    number = {1},
+    pages = {64-93},
+    year = {2024},
+    month = {06},
+    abstract = {Do large language models (LLMs) know the law? LLMs are increasingly being used to augment legal practice, education, and research, yet their revolutionary potential is threatened by the presence of “hallucinations”—textual output that is not consistent with legal facts. We present the first systematic evidence of these hallucinations in public-facing LLMs, documenting trends across jurisdictions, courts, time periods, and cases. Using OpenAI’s ChatGPT 4 and other public models, we show that LLMs hallucinate at least 58\% of the time, struggle to predict their own hallucinations, and often uncritically accept users’ incorrect legal assumptions. We conclude by cautioning against the rapid and unsupervised integration of popular LLMs into legal tasks, and we develop a typology of legal hallucinations to guide future research in this area.},
+    issn = {2161-7201},
+    doi = {10.1093/jla/laae003},
+    url = {https://doi.org/10.1093/jla/laae003},
+    eprint = {https://academic.oup.com/jla/article-pdf/16/1/64/58336922/laae003.pdf},
 }
 
 @inproceedings{pal2023medhalt,
-  title={{M}ed-{HALT}: Medical Domain Hallucination Test for Large Language Models},
-  author={Pal, Ankit and Umapathi, Logesh Kumar and Sankarasubbu, Malaikannan},
-  booktitle={Proceedings of the 27th Conference on Computational Natural Language Learning (CoNLL)},
-  pages={314--334},
-  year={2023},
-  month={dec},
-  address={Singapore},
-  publisher={Association for Computational Linguistics},
-  doi={10.18653/v1/2023.conll-1.21},
-  url={https://aclanthology.org/2023.conll-1.21/}
+    title = "{M}ed-{HALT}: Medical Domain Hallucination Test for Large Language Models",
+    author = "Pal, Ankit  and
+      Umapathi, Logesh Kumar  and
+      Sankarasubbu, Malaikannan",
+    editor = "Jiang, Jing  and
+      Reitter, David  and
+      Deng, Shumin",
+    booktitle = "Proceedings of the 27th Conference on Computational Natural Language Learning (CoNLL)",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.conll-1.21/",
+    doi = "10.18653/v1/2023.conll-1.21",
+    pages = "314--334",
+    abstract = "This research paper focuses on the challenges posed by hallucinations in large language models (LLMs), particularly in the context of the medical domain. Hallucination, wherein these models generate plausible yet unverified or incorrect information, can have serious consequences in healthcare applications. We propose a new benchmark and dataset, Med-HALT (Medical Domain Hallucination Test), designed specifically to evaluate and reduce hallucinations. Med-HALT provides a diverse multinational dataset derived from medical examinations across various countries and includes multiple innovative testing modalities. Med-HALT includes two categories of tests reasoning and memory-based hallucination tests, designed to assess LLMs' problem-solving and information retrieval abilities. Our study evaluated leading LLMs, including Text Davinci, GPT-3.5, LlaMa-2, MPT, and Falcon, revealing significant differences in their performance. The paper provides detailed insights into the dataset, promoting transparency and reproducibility. Through this work, we aim to contribute to the development of safer and more reliable language models in healthcare. Our benchmark can be found at medhalt.github.io"
 }
 
 @inproceedings{wei2022cot,
-  title={Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
-  author={Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed and Le, Quoc V. and Zhou, Denny},
-  booktitle={Advances in Neural Information Processing Systems},
-  volume={35},
-  pages={24824--24837},
-  year={2022},
-  editor={Koyejo, S. and Mohamed, S. and Agarwal, A. and Belgrave, D. and Cho, K. and Oh, A.},
-  publisher={Curran Associates, Inc.},
-  url={https://proceedings.neurips.cc/paper_files/paper/2022/hash/9d5609613524ecf4f15af0f7b31abca4-Abstract-Conference.html}
+ author = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and ichter, brian and Xia, Fei and Chi, Ed and Le, Quoc V and Zhou, Denny},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh},
+ pages = {24824--24837},
+ publisher = {Curran Associates, Inc.},
+ title = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2022/file/9d5609613524ecf4f15af0f7b31abca4-Paper-Conference.pdf},
+ volume = {35},
+ year = {2022}
 }
 
-@article{ouyang2022human,
-  title={Training Language Models to Follow Instructions with Human Feedback},
-  author={Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and Schulman, John and Hilton, Jacob and Kelton, Fraser and Miller, Luke and Simens, Maddie and Askell, Amanda and Welinder, Peter and Christiano, Paul F. and Leike, Jan and Lowe, Ryan},
-  journal={Advances in Neural Information Processing Systems},
-  volume={35},
-  pages={27730--27744},
-  year={2022},
-  url={https://arxiv.org/abs/2203.02155}
+@inproceedings{ouyang2022human,
+ author = {Ouyang, Long and Wu, Jeffrey and Jiang, Xu and Almeida, Diogo and Wainwright, Carroll and Mishkin, Pamela and Zhang, Chong and Agarwal, Sandhini and Slama, Katarina and Ray, Alex and Schulman, John and Hilton, Jacob and Kelton, Fraser and Miller, Luke and Simens, Maddie and Askell, Amanda and Welinder, Peter and Christiano, Paul F and Leike, Jan and Lowe, Ryan},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh},
+ pages = {27730--27744},
+ publisher = {Curran Associates, Inc.},
+ title = {Training language models to follow instructions with human feedback},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2022/file/b1efde53be364a73914f58805a001731-Paper-Conference.pdf},
+ volume = {35},
+ year = {2022}
+}
+
+@inproceedings{ovadia2024ftvsrag,
+author = {Soudani, Heydar and Kanoulas, Evangelos and Hasibi, Faegheh},
+title = {Fine Tuning vs. Retrieval Augmented Generation for Less Popular Knowledge},
+year = {2024},
+isbn = {9798400707247},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3673791.3698415},
+doi = {10.1145/3673791.3698415},
+abstract = {Language Models (LMs) memorize a vast amount of factual knowledge, exhibiting strong performance across diverse tasks and domains. However, it has been observed that the performance diminishes when dealing with less-popular or low-frequency concepts and entities, for example in domain specific applications. The two prominent approaches to enhance the performance of LMs on low-frequent topics are: Retrieval Augmented Generation (RAG) and fine-tuning (FT) over synthetic data. This paper explores and evaluates the impact of RAG and FT on customizing LMs in handling low-frequency entities on question answering tasks. We conduct extensive experiments on twelve LMs of varying size and type and different FT methods, data augmentation, and retrieval models. Our findings indicate that while FT boosts the performance across entities of varying popularity, RAG surpasses FT by a large margin particularly for least popular factual knowledge. Additionally, the success of both RAG and FT approaches is amplified by improving retrieval and data augmentation techniques. Fine tuning, while beneficial for small LMs, requires extensive resources. To address this issue, we propose the new Stimulus RAG approach that surpasses the effectiveness of fine tuning based approaches, thereby eliminating the need for the costly data augmentation and fine tuning step for enriching LMs with less popular factual knowledge.},
+booktitle = {Proceedings of the 2024 Annual International ACM SIGIR Conference on Research and Development in Information Retrieval in the Asia Pacific Region},
+pages = {12–22},
+numpages = {11},
+keywords = {data augmentation, fine tuning, retrieval augmented generation},
+location = {Tokyo, Japan},
+series = {SIGIR-AP 2024}
+}
+
+@article{balaguer2024ftvsragag,
+  title={RAG vs fine-tuning: pipelines, tradeoffs, and a case study on agriculture},
+  author={Balaguer, Angels and Benara, Vinamra and Cunha, Renato Luiz de Freitas and Hendry, Todd and Holstein, Daniel and Marsman, Jennifer and Mecklenburg, Nick and Malvar, Sara and Nunes, Leonardo O and Padilha, Rafael and others},
+  journal={arXiv preprint arXiv:2401.08406},
+  year={2024},
+  url={https://arxiv.org/abs/2401.08406}
+}
+
+@inproceedings{shuster2021raghallucination,
+    title = "Retrieval Augmentation Reduces Hallucination in Conversation",
+    author = "Shuster, Kurt  and
+      Poff, Spencer  and
+      Chen, Moya  and
+      Kiela, Douwe  and
+      Weston, Jason",
+    editor = "Moens, Marie-Francine  and
+      Huang, Xuanjing  and
+      Specia, Lucia  and
+      Yih, Scott Wen-tau",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2021",
+    month = nov,
+    year = "2021",
+    address = "Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.findings-emnlp.320/",
+    doi = "10.18653/v1/2021.findings-emnlp.320",
+    pages = "3784--3803",
+    abstract = "Despite showing increasingly human-like conversational abilities, state-of-the-art dialogue models often suffer from factual incorrectness and hallucination of knowledge (Roller et al., 2020). In this work we explore the use of neural-retrieval-in-the-loop architectures - recently shown to be effective in open-domain QA (Lewis et al., 2020b; Izacard and Grave, 2020) - for knowledge-grounded dialogue, a task that is arguably more challenging as it requires querying based on complex multi-turn dialogue context and generating conversationally coherent responses. We study various types of architectures with multiple components - retrievers, rankers, and encoder-decoders - with the goal of maximizing knowledgeability while retaining conversational ability. We demonstrate that our best models obtain state-of-the-art performance on two knowledge-grounded conversational tasks. The models exhibit open-domain conversational capabilities, generalize effectively to scenarios not within the training data, and, as verified by human evaluations, substantially reduce the well-known problem of knowledge hallucination in state-of-the-art chatbots."
+}
+
+@inproceedings{sadat2023delucionqa,
+    title = "{D}elucion{QA}: Detecting Hallucinations in Domain-specific Question Answering",
+    author = "Sadat, Mobashir  and
+      Zhou, Zhengyu  and
+      Lange, Lukas  and
+      Araki, Jun  and
+      Gundroo, Arsalan  and
+      Wang, Bingqing  and
+      Menon, Rakesh  and
+      Parvez, Md  and
+      Feng, Zhe",
+    editor = "Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2023",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-emnlp.59/",
+    doi = "10.18653/v1/2023.findings-emnlp.59",
+    pages = "822--835",
+    abstract = "Hallucination is a well-known phenomenon in text generated by large language models (LLMs). The existence of hallucinatory responses is found in almost all application scenarios e.g., summarization, question-answering (QA) etc. For applications requiring high reliability (e.g., customer-facing assistants), the potential existence of hallucination in LLM-generated text is a critical problem. The amount of hallucination can be reduced by leveraging information retrieval to provide relevant background information to the LLM. However, LLMs can still generate hallucinatory content for various reasons (e.g., prioritizing its parametric knowledge over the context, failure to capture the relevant information from the context, etc.). Detecting hallucinations through automated methods is thus paramount. To facilitate research in this direction, we introduce a sophisticated dataset, DelucionQA, that captures hallucinations made by retrieval-augmented LLMs for a domain-specific QA task. Furthermore, we propose a set of hallucination detection methods to serve as baselines for future works from the research community. Analysis and case study are also provided to share valuable insights on hallucination phenomena in the target scenario."
+}
+
+@article{farquhar2024semantic,
+    author = {Farquhar, Sebastian and Kossen, Jannik and Kuhn, Lorenz and Gal, Yarin},
+    title = {Detecting hallucinations in large language models using semantic entropy},
+    journal = {Nature},
+    volume = {630},
+    number = {8017},
+    pages = {625--630},
+    year = {2024},
+    month = jun,
+    doi = {10.1038/s41586-024-07421-0},
+    url = {https://doi.org/10.1038/s41586-024-07421-0},
+    abstract = {Large language model (LLM) systems, such as ChatGPT or Gemini, can show impressive reasoning and question-answering capabilities but often 'hallucinate' false outputs and unsubstantiated answers. Answering unreliably or without the necessary information prevents adoption in diverse fields, with problems including fabrication of legal precedents or untrue facts in news articles and even posing a risk to human life in medical domains such as radiology. Encouraging truthfulness through supervision or reinforcement has been only partially successful. Researchers need a general method for detecting hallucinations in LLMs that works even with new and unseen questions to which humans might not know the answer. Here we develop new methods grounded in statistics, proposing entropy-based uncertainty estimators for LLMs to detect a subset of hallucinations—confabulations—which are arbitrary and incorrect generations. Our method addresses the fact that one idea can be expressed in many ways by computing uncertainty at the level of meaning rather than specific sequences of words.}
 }
