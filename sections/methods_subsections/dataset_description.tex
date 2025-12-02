@@ -1,0 +1,54 @@
+\subsection{Dataset Description}
+
+We evaluate all systems using SQuAD 2.0 \citep{rajpurkar2018squad2}, a widely-adopted benchmark for question answering that extends SQuAD 1.0 \citep{rajpurkar2016squad1} by incorporating 50,000 unanswerable questions alongside 100,000+ answerable questions. This combination makes SQuAD 2.0 suitable for evaluating abstention behavior, as systems must determine both when they can answer and when they should decline.
+
+The dataset consists of question-answer pairs derived from Wikipedia articles across 477 distinct topics. Each example includes a context paragraph, a question, and either an extracted answer span or empty array representing that the question is unanswerable. We use the official training split (130,319 examples) for model training and fine-tuning, and reserve the official validation split (11,873 examples) as our held-out test set.
+
+\textbf{Data Characteristics}. Table~\ref{tab:squad_composition} shows the dataset composition by answerability. The training set contains 130,319 examples with 66.6\% answerable questions, reflecting the original SQuAD distribution augmented with unanswerable examples. In contrast, the validation set is evenly balanced with 50.1\% unanswerable questions across 11,873 examples—a distribution that challenges models to recognize knowledge boundaries without relying on dataset bias.
+
+\begin{table}[t]
+\centering
+\caption{SQuAD 2.0 dataset composition by answerability.}
+\label{tab:squad_composition}
+\begin{tabular}{llr}
+\toprule
+\textbf{Split} & \textbf{Type} & \textbf{Count} \\
+\midrule
+\multirow{3}{*}{Training} 
+    & Answerable & 86,821 (66.6\%) \\
+    & Unanswerable & 43,498 (33.4\%) \\
+    & \textit{Total} & \textit{130,319} \\
+\midrule
+\multirow{3}{*}{Validation} 
+    & Answerable & 5,928 (49.9\%) \\
+    & Unanswerable & 5,945 (50.1\%) \\
+    & \textit{Total} & \textit{11,873} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+We evaluate our models on the SQuAD 2.0 dataset, which extends the original SQuAD with unanswerable questions. Table~\ref{tab:squad_tokens} presents token count statistics for questions, contexts, and answers. Questions are consistently brief, with a median length of 12 tokens across both splits. Context paragraphs are substantially longer, with median lengths of 146 tokens (training) and 149 tokens (validation). Answer spans for answerable questions are short, with a median of 3 tokens, though the distribution has a long tail extending to 75 tokens in the training set.
+
+\begin{table}[t]
+\centering
+\caption{SQuAD 2.0 token count statistics using Llama-3.2-3B tokenizer. Mean values are shown with median in parentheses.}
+\label{tab:squad_tokens}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Component} & \textbf{Split} & \textbf{Mean (Med.)} & \textbf{Range} \\
+\midrule
+\multirow{2}{*}{Question} 
+    & Train & 12.32 (12) & 1--61 \\
+    & Val & 12.37 (12) & 4--37 \\
+\midrule
+\multirow{2}{*}{Context} 
+    & Train & 158.61 (146) & 26--907 \\
+    & Val & 166.90 (149) & 30--780 \\
+\midrule
+\multirow{2}{*}{Answer} 
+    & Train & 4.69 (3) & 1--75 \\
+    & Val & 4.40 (3) & 1--42 \\
+\bottomrule
+\end{tabular}
+\end{table}

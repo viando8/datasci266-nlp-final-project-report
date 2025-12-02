@@ -1,0 +1,48 @@
+\section{Baseline Prompt}
+\label{app:baseline_prompt}
+
+\subsection{Test Data Construction}.
+
+We sampled 2,000 examples from the SQuAD 2.0 training set, stratified by:
+
+\textbf{Answerability:} Answerable vs. unanswerable questions (equal representation).
+
+\textbf{Complexity:} Defined as the average of standardized token counts for context, question, and answer. We partition into three levels (low, medium, high) using quantile binning, resulting in six strata. Proportional sampling ensures balanced representation across all combinations.
+
+\subsection{Instruction Variants}
+
+\textbf{V0 (Simple):}
+\begin{quote}
+\textit{Answer the question based solely on the given context. If the answer is not in the context, respond with 'unanswerable'.}
+\end{quote}
+
+\textbf{V1 (Explicit):}
+\begin{quote}
+\textit{You are an extractive question answering system. Extract the shortest possible answer span from the context that fully answers the question. Extract the answer word-for-word from the context. Do not paraphrase or generate new text. Do not use outside knowledge. Do not provide an explanation of your response. Just the answer span. If the question cannot be answered from the context, output exactly: 'unanswerable'.}
+\end{quote}
+
+\textbf{V2 (Chain-of-Thought):}
+\begin{quote}
+\textit{You are an extractive question answering system. Answer the question based on the context given. Think step by step: 1. First, determine if the context contains information to answer the question. 2. If yes, extract the exact text span that answers it. 3. If no, respond with just 'unanswerable'.}
+\end{quote}
+
+\subsection{Results}
+
+% Table~\ref{tab:instruction_comparison} shows performance across variants using `temperature=0.1`, `top_p=0.9`, `max_new_tokens=35`.
+
+% \begin{table}[h]
+% \centering
+% \caption{Instruction variant comparison on 2,000-example test set.}
+% \label{tab:instruction_comparison}
+% \begin{tabular}{lcccccccc}
+% \toprule
+% \textbf{Config} & \textbf{EM} & \textbf{F1} & \textbf{Ans EM} & \textbf{Ans F1} & \textbf{Unans EM} & \textbf{Unans F1} & \textbf{BERT F1} & \textbf{STS} \\
+% \midrule
+% V0 (Simple) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% \\
+% V1 (Explicit) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & \textbf{XX.X\%} & XX.X\% \\
+% V2 (CoT) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% \\
+% \bottomrule
+% \end{tabular}
+% \end{table}
+
+% V1 (Explicit) achieves the highest BERTScore F1 (XX.X\%), demonstrating superior semantic alignment. We select this variant for its emphasis on extractive behavior and clear abstention guidelines.

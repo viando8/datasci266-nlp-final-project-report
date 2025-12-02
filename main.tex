@@ -2,7 +2,7 @@
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
-\usepackage[final]{acl}
+\usepackage[preprint]{acl}
 
 % Standard package includes
 \usepackage{times}
@@ -27,6 +27,10 @@
 %Including images in your LaTeX document requires adding
 %additional package(s)
 \usepackage{graphicx}
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
 
 % If the title and author information does not fit in the area allocated, uncomment the following
 %
@@ -58,15 +62,6 @@
 % Custom bibliography entries only
 \bibliography{references}
 
-\appendix
-\section{First Appendix Title}
-\label{sec:appendix-a}
-
-This is appendix A content.
-
-\section{Second Appendix Title}
-\label{sec:appendix-b}
-
-This is appendix B content.
+\input{sections/appendix}
 
 \end{document}
