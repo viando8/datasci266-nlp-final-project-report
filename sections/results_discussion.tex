@@ -1,3 +1,24 @@
 \section{Results and Discussion}
 
-Donec ut posuere quam. Nam eget dapibus erat, gravida viverra felis. Fusce eleifend urna sed risus suscipit, in vestibulum elit luctus. Vivamus ut leo convallis, interdum magna et, accumsan odio. Aenean vulputate purus at est sollicitudin, nec egestas justo iaculis. Fusce convallis sit amet nisi ac pharetra. Aenean maximus aliquam nibh eu ornare. Duis sit amet dictum magna, id malesuada urna. Curabitur cursus gravida odio. Donec eleifend iaculis vestibulum. Aliquam suscipit, lectus id malesuada ultricies, lorem ipsum malesuada nisi, sed venenatis magna metus non ante. Nulla a porttitor mauris, et pretium justo. Nulla dignissim mi non pharetra lacinia. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Table~\ref{tab:baseline_qlora_comparison} presents the performance comparison between the baseline Llama-3.2-3B-Instruct model and the QLoRA fine-tuned variant across all evaluation metrics.\footnote{Baseline metrics are computed on the full SQuAD 2.0 validation set (11,873 examples), while QLoRA metrics are from a 2,000-example subset. Future work will evaluate both models on identical subsets for stricter comparison.}
+
+\begin{table}[t]
+\centering
+\caption{Baseline vs. QLoRA fine-tuned model performance on SQuAD 2.0.}
+\label{tab:baseline_qlora_comparison}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Metric} & \multicolumn{2}{c}{\textbf{Baseline 3B}} & \multicolumn{2}{c}{\textbf{QLoRA 3B}} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+& Ans. & Unans. & Ans. & Unans. \\
+\midrule
+Exact Match & 38.36\% & 52.01\% & 2.99\% & 74.53\% \\
+F1 Score & 59.58\% & 52.01\% & 18.93\% & 74.53\% \\
+BERTScore F1 & 46.45\% & 44.26\% & 10.08\% & 67.50\% \\
+STS Score & 85.83\% & 78.41\% & 71.14\% & 88.38\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The QLoRA fine-tuned model reveals a fundamental tradeoff in teaching LLMs to recognize knowledge boundaries. Fine-tuning dramatically improved unanswerable question detection---Exact Match rose from 52.01\% to 74.53\%, with BERTScore F1 increasing from 44.26\% to 67.50\%---demonstrating that the model successfully learned to abstain when context is insufficient. However, this capability came at the expense of answer extraction: answerable Exact Match fell from 38.36\% to 2.99\%, and F1 from 59.58\% to 18.93\%. The STS scores reinforce this pattern: high semantic similarity on unanswerable questions (88.38\%) confirms reliable abstention behavior, while lower answerable STS (71.14\%) reflects the model's tendency to abstain even when answers exist. This asymmetry suggests that within our constrained training regime (8,000 randomly sampled examples, single epoch), the model learned abstention as a dominant strategy rather than developing balanced judgment. The finding highlights a key challenge for fine-tuning approaches: optimizing for unanswerable question detection may inadvertently suppress the extractive capabilities that make QA systems useful, a tradeoff that retrieval-augmented approaches may handle differently by externalizing knowledge boundaries.
