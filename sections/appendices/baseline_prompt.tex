@@ -28,21 +28,22 @@ We sampled 2,000 examples from the SQuAD 2.0 training set, stratified by:
 
 \subsection{Results}
 
-% Table~\ref{tab:instruction_comparison} shows performance across variants using `temperature=0.1`, `top_p=0.9`, `max_new_tokens=35`.
+Table~\ref{tab:instruction_comparison} shows performance across variants using \texttt{temperature=0.1}, \texttt{top\_p=0.9}, \texttt{max\_new\_tokens=35}.
 
-% \begin{table}[h]
-% \centering
-% \caption{Instruction variant comparison on 2,000-example test set.}
-% \label{tab:instruction_comparison}
-% \begin{tabular}{lcccccccc}
-% \toprule
-% \textbf{Config} & \textbf{EM} & \textbf{F1} & \textbf{Ans EM} & \textbf{Ans F1} & \textbf{Unans EM} & \textbf{Unans F1} & \textbf{BERT F1} & \textbf{STS} \\
-% \midrule
-% V0 (Simple) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% \\
-% V1 (Explicit) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & \textbf{XX.X\%} & XX.X\% \\
-% V2 (CoT) & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% & XX.X\% \\
-% \bottomrule
-% \end{tabular}
-% \end{table}
+\begin{table}[t]
+\centering
+\caption{Instruction comparison on test set.}
+\label{tab:instruction_comparison}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Instruction} & \textbf{EM} & \textbf{F1} & \textbf{BERTScore} & \textbf{STS} \\
+\midrule
+V0 (Simple) & 45.25 & 56.28 & 43.22 & 80.70 \\
+V1 (Explicit) & 43.55 & 54.94 & 43.23 & 81.47 \\
+V2 (CoT) & 34.05 & 46.62 & 33.16 & 77.51 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-% V1 (Explicit) achieves the highest BERTScore F1 (XX.X\%), demonstrating superior semantic alignment. We select this variant for its emphasis on extractive behavior and clear abstention guidelines.
+V1 (Explicit) achieves the highest BERTScore F1 (43.23\%), demonstrating superior semantic alignment. We select this variant for its emphasis on extractive behavior and clear abstention guidelines.

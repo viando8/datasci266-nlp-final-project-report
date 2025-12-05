@@ -1,0 +1,13 @@
+\subsection{Evaluation Metrics}
+
+We evaluate model performance using four metrics that capture different aspects of QA quality. All metrics are computed separately for answerable and unanswerable questions to assess the accuracy-abstention tradeoff that motivates our comparison.
+
+\textbf{Exact Match (EM)} measures whether the predicted answer exactly matches the ground truth string after normalization (lowercasing, punctuation removal, article removal). This provides a strict correctness metric. For unanswerable questions, EM captures whether the model correctly outputs an abstention token. When multiple reference answers exist, we take the maximum EM score across all references.
+
+\textbf{F1 Score} computes token-level precision and recall between prediction and ground truth, offering partial credit for incomplete answers. This metric is more forgiving than EM for extractive QA where answer boundaries may vary slightly. As with EM, we take the maximum F1 score across all reference answers.
+
+\textbf{BERTScore F1} \citep{zhang2020bertscore} evaluates semantic similarity between generated and reference answers using contextual embeddings from RoBERTa-large with baseline rescaling. This metric assesses whether answers are semantically equivalent even when not lexically identical, helping identify paraphrasing versus hallucination. For examples with multiple references, we select the reference that maximizes BERTScore F1 and report the corresponding precision, recall, and F1 values.
+
+\textbf{Semantic Textual Similarity (STS)} measures cosine similarity between sentence embeddings of the generated answer and reference answer using the \texttt{all-mpnet-base-v2} model \citep{reimers2019sentencebert}. We normalize similarity scores to the [0,1] range using $(s+1)/2$. High STS scores indicate answers are semantically aligned with reference answers. For multiple references, we take the maximum similarity score. This metric helps quantify whether answers derive from the given context rather than parametric memory, directly addressing our research question about external versus internal knowledge integration.
+
+For abstained predictions (unanswerable outputs or empty generations), we use the placeholder text "[NO ANSWER]" for BERTScore and STS computations to ensure consistent comparison with unanswerable ground truth labels.
