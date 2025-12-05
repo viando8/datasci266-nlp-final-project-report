@@ -1,10 +1,10 @@
 \subsection{Dataset Description}
 
-We evaluate all systems using SQuAD 2.0 \citep{rajpurkar2018squad2}, a widely-adopted benchmark for question answering that extends SQuAD 1.0 \citep{rajpurkar2016squad1} by incorporating 50,000 unanswerable questions alongside 100,000+ answerable questions. This combination makes SQuAD 2.0 suitable for evaluating abstention behavior, as systems must determine both when they can answer and when they should decline.
+We evaluate all systems on SQuAD 2.0 \citep{rajpurkar2018squad2}, which includes 50,000 unanswerable questions alongside 100,000+ answerable ones. This dataset requires systems to determine both when they can answer and when they should abstain.
 
-The dataset consists of question-answer pairs derived from Wikipedia articles across 477 distinct topics. Each example includes a context paragraph, a question, and either an extracted answer span or empty array representing that the question is unanswerable. We use the official training split (130,319 examples) for model training and fine-tuning, and reserve the official validation split (11,873 examples) as our held-out test set.
+The dataset consists of question-answer pairs derived from Wikipedia articles across 477 distinct topics. Each example includes a context paragraph, a question, and either an extracted answer span or an empty array indicating the question is unanswerable. We use the official training split for model training and fine-tuning, and reserve the official validation split as our held-out test set.
 
-\textbf{Data Characteristics}. Table~\ref{tab:squad_composition} shows the dataset composition by answerability. The training set contains 130,319 examples with 66.6\% answerable questions, reflecting the original SQuAD distribution augmented with unanswerable examples. In contrast, the validation set is evenly balanced with 50.1\% unanswerable questions across 11,873 examples—a distribution that challenges models to recognize knowledge boundaries without relying on dataset bias.
+\textbf{Data Characteristics}. Table~\ref{tab:squad_composition} shows the dataset composition by answerability. The training set contains 130,319 examples with 66.6\% answerable questions. In contrast, the validation set is evenly balanced with 50.1\% unanswerable questions across 11,873 examples—a distribution that challenges models to recognize knowledge boundaries without relying on dataset bias.
 
 \begin{table}[t]
 \centering
@@ -27,7 +27,7 @@ The dataset consists of question-answer pairs derived from Wikipedia articles ac
 \end{tabular}
 \end{table}
 
-We evaluate our models on the SQuAD 2.0 dataset, which extends the original SQuAD with unanswerable questions. Table~\ref{tab:squad_tokens} presents token count statistics for questions, contexts, and answers. Questions are consistently brief, with a median length of 12 tokens across both splits. Context paragraphs are substantially longer, with median lengths of 146 tokens (training) and 149 tokens (validation). Answer spans for answerable questions are short, with a median of 3 tokens, though the distribution has a long tail extending to 75 tokens in the training set.
+Table~\ref{tab:squad_tokens} presents token count statistics for questions, contexts, and answers. Questions are consistently brief, with a median length of 12 tokens across both splits. Context paragraphs are substantially longer, with median lengths of 146 tokens (training) and 149 tokens (validation). Answer spans for answerable questions are short, with a median of 3 tokens, though the distribution has a long tail extending to 75 tokens in the training set.
 
 \begin{table}[t]
 \centering
@@ -52,3 +52,5 @@ We evaluate our models on the SQuAD 2.0 dataset, which extends the original SQuA
 \bottomrule
 \end{tabular}
 \end{table}
+
+\textbf{QLoRA subsets}. Due to computational constraints, we train the QLoRA model on a randomly sampled subset of 8,000 training examples (6.1\% of full data, \texttt{seed=42}) and evaluate on a 2,000-example subset of the validation split. This reduced scale may limit the model's exposure to the full diversity of question types, a limitation we address in future work.
