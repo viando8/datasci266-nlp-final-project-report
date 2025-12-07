@@ -25,7 +25,7 @@ STS Score & 85.83 & 78.41 & 76.50 & 81.87 & 71.14 & 88.38 \\
 
 We evaluated both the Zero-Shot Baseline (Llama 3B) and the RAG System on the SQuAD 2.0 validation set. The analysis focuses on three key areas: overall performance, the ability to answer correctly when possible, and the ability to abstain when necessary.
 
-The most significant finding is that the RAG system is significantly superior at handling unanswerable questions (+7.60\% improvement in EM). The RAG system acts "safely": when it cannot find a semantic match in the retrieved documents, it correctly abstains nearly 60% of the time. 
+The most significant finding is that the RAG system is significantly superior at handling unanswerable questions (+7.60\% improvement in EM). The RAG system acts "safely": when it cannot find a semantic match in the retrieved documents, it correctly abstains nearly 60\% of the time. 
 
 However, the RAG system suffered a significant performance drop on Answerable questions (22.22\% EM vs. Baseline's 38.36\%). This highlights a critical "retrieval bottleneck." Even when the context window was expanded (from k=3 to k=5), the system frequently failed to generate the correct answer. This suggests that when the retriever fails to surface the exact evidence required, the LLM is forced to abstain due to strict prompt instructions, whereas the Baseline can leverage its internal training data to answer correctly.
 
@@ -35,4 +35,24 @@ In summary, the RAG architecture successfully met the project's primary objectiv
 
 \subsection{Comparing Baseline with Q-Lora}
 
-The QLoRA fine-tuned model reveals a fundamental tradeoff in teaching LLMs to recognize knowledge boundaries. Fine-tuning dramatically improved unanswerable question detection---Exact Match rose from 52.01\% to 74.53\%, with BERTScore F1 increasing from 44.26\% to 67.50\%---demonstrating that the model successfully learned to abstain when context is insufficient. However, this capability came at the expense of answer extraction: answerable Exact Match fell from 38.36\% to 2.99\%, and F1 from 59.58\% to 18.93\%. The STS scores reinforce this pattern: high semantic similarity on unanswerable questions (88.38\%) confirms reliable abstention behavior, while lower answerable STS (71.14\%) reflects the model's tendency to abstain even when answers exist. This asymmetry suggests that within our constrained training regime (8,000 randomly sampled examples, single epoch), the model learned abstention as a dominant strategy rather than developing balanced judgment. The finding highlights a key challenge for fine-tuning approaches: optimizing for unanswerable question detection may inadvertently suppress the extractive capabilities that make QA systems useful, a tradeoff that retrieval-augmented approaches may handle differently by externalizing knowledge boundaries.
+The QLoRA fine-tuned model reveals a critical failure mode in teaching LLMs to
+recognize knowledge boundaries through low-resource fine-tuning. While
+fine-tuning achieved the highest unanswerable detection score---Exact Match rose
+from 52.01\textbackslash \% to 74.53\textbackslash \%, with BERTScore F1
+increasing from 44.26\textbackslash \% to 67.50\textbackslash \%---this
+improvement was not due to learned discrimination but rather because the model
+learned abstention as a dominant strategy. This behavior is evidenced by the
+catastrophic collapse in answerable question performance: Answerable Exact Match
+fell from 38.36\textbackslash \% (Baseline) to just 2.99\textbackslash \%
+(QLoRA). Similarly, the F1 score for answerable questions dropped to 18.
+93\textbackslash \%. The Semantic Textual Similarity (STS) scores reinforce this
+pattern: while the model achieved high similarity on unanswerable questions (88.
+38\textbackslash \%), this reflects a tendency to output ``unanswerable''
+regardless of the input. This asymmetry suggests that within our constrained
+training regime (8,000 randomly sampled examples, single epoch), the model
+resorted to the shortcut of always abstaining, rendering it functionally useless
+for actual question answering. The finding highlights a key challenge for
+fine-tuning approaches: optimizing for unanswerable question detection may
+inadvertently suppress the extractive capabilities that make QA systems useful,
+a tradeoff that retrieval-augmented approaches may handle differently by
+externalizing knowledge boundaries.
